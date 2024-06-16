@@ -7,6 +7,6 @@ fi
 if [ -f $NXF_SINGULARITY_CACHEDIR/R.sif ]; then
     echo "R.sif already exists"
 else
-    singularity build --fakeroot $NXF_SINGULARITY_CACHEDIR/R.sif singularity.def
+    singularity build --fakeroot $NXF_SINGULARITY_CACHEDIR/R.sif $TOOLS/river_r_shiny/singularity.def
 fi
 singularity exec $NXF_SINGULARITY_CACHEDIR/R.sif R -e "shiny::runApp('/srv/shiny-server/app.R', host='0.0.0.0', port=$PORT)"

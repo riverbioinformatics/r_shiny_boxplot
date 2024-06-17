@@ -2,18 +2,18 @@
 
 IMAGE_NAME="shiny_ggplot2_readr"
 VERSION="1.0.0-rc"
-SINGULARITY_CACHE_DIR="${NXF_SINGULARITY_CACHEDIR}/${IMAGE_NAME}"
-IMAGE_PATH="${SINGULARITY_CACHE_DIR}/${IMAGE_NAME}-${VERSION}.sif"
-DEFINITION_PATH="${SINGULARITY_CACHE_DIR}/${IMAGE_NAME}-${VERSION}.def"
+SINGULARITY_CACHE_TOOL_DIR="${SINGULARITY_CACHE_DIR}/${IMAGE_NAME}"
+IMAGE_PATH="${SINGULARITY_CACHE_TOOL_DIR}/${IMAGE_NAME}-${VERSION}.sif"
+DEFINITION_PATH="${SINGULARITY_CACHE_TOOL_DIR}/${IMAGE_NAME}-${VERSION}.def"
 
-# Check if NXF_SINGULARITY_CACHEDIR is set
-if [ -z "${NXF_SINGULARITY_CACHEDIR}" ]; then
-    echo "Error: NXF_SINGULARITY_CACHEDIR is not set."
+# Check if SINGULARITY_CACHE_TOOL_DIR is set
+if [ -z "${SINGULARITY_CACHE_TOOL_DIR}" ]; then
+    echo "Error: SINGULARITY_CACHE_TOOL_DIR is not set."
     exit 1
 fi
 
 # Create cache directory if it doesn't exist
-mkdir -p "${SINGULARITY_CACHE_DIR}"
+mkdir -p "${SINGULARITY_CACHE_TOOL_DIR}"
 
 # Check if the Singularity image already exists
 if [ -f "${IMAGE_PATH}" ]; then

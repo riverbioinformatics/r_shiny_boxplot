@@ -20,9 +20,9 @@ if [ -f "${IMAGE_PATH}" ]; then
     echo "Using existing image: ${IMAGE_PATH}"
 else
     echo "Image not found. Building image..."
-    cp "${TOOLS}/river_r_shiny/singularity.def" "${DEFINITION_PATH}"
+    cp "${TOOLS}/<<tool_name>>/singularity.def" "${DEFINITION_PATH}"
     singularity build --fakeroot "${IMAGE_PATH}" "${DEFINITION_PATH}"
 fi
 
 # Run the Shiny application
-singularity exec -B "${TOOLS}/river_r_shiny/app.R:/srv/shiny-server/app.R" "${IMAGE_PATH}" R -e "shiny::runApp('/srv/shiny-server/app.R', host='0.0.0.0', port=${PORT})"
+singularity exec -B "${TOOLS}/<<tool_name>>/app.R:/srv/shiny-server/app.R" "${IMAGE_PATH}" R -e "shiny::runApp('/srv/shiny-server/app.R', host='0.0.0.0', port=${PORT})"

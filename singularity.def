@@ -3,7 +3,7 @@ From: r-base:4.1.0
 
 %post
     # Install R packages
-    /usr/bin/R -e "install.packages(c('shiny', 'ggplot2','readr'), repos='https://cloud.r-project.org/')"
+    /usr/bin/R -e "install.packages(c('shiny', 'ggplot2','readr','shinyauthr'), repos='https://cloud.r-project.org/')"
 
 %labels
     Version 1.0.0-rc
